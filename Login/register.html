@@ -8,15 +8,20 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	
-	<link rel="stylesheet" href="Frontend/full-width-pics.css"/>
+	<link rel="stylesheet" href="../Frontend/full-width-pics.css"/>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-10 offset-1">
-				<h1> Welcome to my recipe book. In order to see the recipes, please register.</h1>
-			</div>
+	<!-- NAVIGATION BAR AND BURGER MENUE -->
+	<nav class="navbar navbar-fixed-top navbar-dark bg-dark shadow navbar-expand-md">
+		<div class="container">
+			<a class="navbar-brand" href="#">Recipe book</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 		</div>
+	</nav>
+	
+	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 pt-5 mt-5 border border-dark rounded-lg">
 				<form id="form" method="POST" action="register.php">

@@ -11,12 +11,24 @@
 	<link rel="stylesheet" href="Frontend/full-width-pics.css"/>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-10 offset-1">
-				<h1> Welcome to my recipe book. In order to see the recipes, please log in.</h1>
+<!-- NAVIGATION BAR AND BURGER MENUE -->
+	<nav class="navbar navbar-fixed-top navbar-dark bg-dark shadow navbar-expand-md">
+		<div class="container">
+			<a class="navbar-brand" href="#">Recipe book</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Recipes<span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
 			</div>
 		</div>
+	</nav>
+	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 pt-5 mt-5 border border-dark rounded-lg">
 				<form method="POST" id="form" action="Login/login.php">
