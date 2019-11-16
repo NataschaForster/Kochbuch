@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 
 // initializing variables
@@ -8,6 +8,18 @@ $errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', '', 'registration');
+
+//Test if Username already exists in database
+if(isset($_POST["user_name"])){
+  $sql = "SELECT * FROM users WHERE username='".$_POST["user_name"]."'";
+  $result = mysqli_query($db, $sql);
+  if(mysqli_num_rows($result) > 0){
+    echo '<span>Username already taken</span>';
+  }
+  else {
+    echo '<span>Username available</span>';
+  }
+}
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {

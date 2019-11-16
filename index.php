@@ -58,7 +58,7 @@
 </div>
 
 <!-- HEADER IMAGE -->
-	<header class="py-5 bg-image-full" style="background-image: url('../Frontend/Bilder/cooking.jpg');">
+	<header class="py-5 bg-image-full" style="background-image: url('/Bilder/cooking.jpg');">
 		<div class="row ml-5" style="height:400px">
 			<h1 class="d-flex align-items-end" id="batch">My favorite recipes</h1>
 		</div>
@@ -134,7 +134,7 @@
 				</p>
 			</div>
 			<div class="col-xs-12 col-lg-4 offset-lg-1">
-				<img class="img-fluid max-width:100% height:auto" src="../Frontend/Bilder/peanut.jpg">
+				<img class="img-fluid max-width:100% height:auto" src="/Bilder/peanut.jpg">
 			</div>
 		</div>
 		
@@ -186,7 +186,7 @@
 				<p>Cook spaghetti. Heat butter in pan, add garlic powder. Add tomatoes and cover with lid. Wait for 10mins and Smash tomatoes. Add a little extra oil. Mix spaghetti and sauce. Enjoy!</p>
 			</div>
 			<div class="col-xs-12 col-lg-4 offset-lg-1">
-				<img class="img-fluid max-width:100% height:auto" src="../Frontend/Bilder/Cherry.jpg">
+				<img class="img-fluid max-width:100% height:auto" src="/Bilder/Cherry.jpg">
 			</div>
 		</div>
 		
@@ -268,7 +268,7 @@
 				<p>Chop onions and grind tofu. Add to preheated pan and fry for a couple of minutes. Put together with puréed tomatoes. Stack lasagna plates and sauce in a baking dish. Add all cheese ingredients to a pot. Cook till condensed. Add to lasagna and bake in the oven for 20 minutes on 200°C. Enjoy!</p>
 			</div>
 			<div class="col-xs-12 col-lg-4 offset-lg-1">
-				<img class="img-fluid max-width:100% height:auto" src="../Frontend/Bilder/lasagna.jpg">
+				<img class="img-fluid max-width:100% height:auto" src="/Bilder/lasagna.jpg">
 			</div>
 		</div>
 		
@@ -321,7 +321,7 @@
 				<p>Cook rice. Fry onions. Add everything else together and wait. Enjoy!</p>
 			</div>
 			<div class="col-xs-12 col-lg-4 offset-lg-1">
-				<img class="img-fluid max-width:100% height:auto" src="../Frontend/Bilder/african.jpg">
+				<img class="img-fluid max-width:100% height:auto" src="/Bilder/african.jpg">
 			</div>
 		</div>
 	</div>
@@ -330,7 +330,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>	
-	<script src="../calculate.js"></script>
+	<script src="/calculate.js"></script>
 	<script>
 	function myFunction() {
 	  alert($_SESSION['success']);

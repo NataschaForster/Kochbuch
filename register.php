@@ -14,7 +14,8 @@
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   	  <label>Username</label>
-  	  <input type="text" name="username" value="<?php echo $username; ?>">
+		<input type="text" id="username" name="username" value="<?php echo $username; ?>">
+		<span id="availability"></span>
   	</div>
   	<div class="input-group">
   	  <label>Email</label>
@@ -35,5 +36,7 @@
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
   </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="availability.js"></script>
 </body>
 </html>
