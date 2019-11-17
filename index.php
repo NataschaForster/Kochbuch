@@ -177,18 +177,44 @@
 								<td><?php echo $row['username']; ?></td>
 								<td><?php echo $row['comment']; ?></td>
 								<?php if($row['username'] == $_SESSION['username']): ?>
-									<td> <button> <img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"> </button> </td>
 									
+									<!-- Trigger the modal with a button -->
+									<td><button type="button" class="btn" data-toggle="modal" data-target="#myModal"><img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"></button></td>
+
 									<form id="delete" action="index.php" method="POST">
 										<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
 										<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
 									</form>
+									
 								<?php endif; ?>
 							</tr>
 							<?php endforeach; ?>
 						</table>
 					</div>
 				</div>
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+					
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3>Edit your comment here.</h3>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+							<div class="modal-body">
+								<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
+									<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
+									<button name ="update_comment" type="submit" class="btn btn-default">Save changes</button>
+									<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
 			</div>
 		</div>
 

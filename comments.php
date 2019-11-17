@@ -33,10 +33,25 @@
     if(isset($_POST['delete_comment'])){
         $id = $_POST['id'];
 
-        $sql_delete = "DELETE FROM comments WHERE id=$id"; }
+        $sql_delete = "DELETE FROM comments WHERE id='$id'"; 
         if(!mysqli_query($db, $sql_delete)){
             echo "Error occured: ".mysqli_error($db);
         }
+    }
 
     //edit comments
+    if(isset($_POST['update_comment'])){
+        $id = $_POST['id'];
+        $comment = $_POST['updated_comment'];
+
+        $sql_update = "UPDATE comments
+        SET comment = '$comment'
+        WHERE id = '$id'"; 
+        
+        
+        if(!mysqli_query($db, $sql_update)){
+            echo "Error occured: ".mysqli_error($db);
+        }
+    }
+
 ?>

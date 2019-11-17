@@ -70,3 +70,7 @@ form, .content {
 #comment  { 
   width: 100% !important;
 }
+
+#modal_form {
+  width: 100% !important;
+}
