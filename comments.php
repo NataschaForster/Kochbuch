@@ -3,6 +3,7 @@
     // connect to the database
     $db = mysqli_connect('localhost', 'root', '', 'comments');
 
+    // create new comment
     if(isset($_POST['submit_comment'])){
         $comment = $_POST['comment'];
         $name = $_POST['username'];
@@ -29,6 +30,13 @@
     $result_4 = mysqli_query($db, $sql_4);
 
     //delete comments
+    if(isset($_POST['delete_comment'])){
+        $id = $_POST['id'];
+
+        $sql_delete = "DELETE FROM comments WHERE id=$id"; }
+        if(!mysqli_query($db, $sql_delete)){
+            echo "Error occured: ".mysqli_error($db);
+        }
 
     //edit comments
 ?>

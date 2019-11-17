@@ -178,7 +178,11 @@
 								<td><?php echo $row['comment']; ?></td>
 								<?php if($row['username'] == $_SESSION['username']): ?>
 									<td> <button> <img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"> </button> </td>
-									<td> <button> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+									
+									<form id="delete" action="index.php" method="POST">
+										<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+										<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+									</form>
 								<?php endif; ?>
 							</tr>
 							<?php endforeach; ?>
