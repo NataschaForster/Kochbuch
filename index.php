@@ -46,11 +46,7 @@
 						<li class="nav-item px-4 py-0" style="height: 20px"> 
 							<a class="nav-link" href="index.php?logout='1'">Logout</a> 
 						</li>
-					<?php endif ?>
-					<li class="nav-item active">
-						<a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
-					</li>
-					
+					<?php endif ?>					
 				</ul>
 			</div>
 		</div>
@@ -182,39 +178,39 @@
 									<td><button type="button" class="btn" data-toggle="modal" data-target="#myModal"><img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"></button></td>
 
 									<form id="delete" action="index.php" method="POST">
-										<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+
 										<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
-									</form>
 									
+										<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+									</form>
+														
+									<!-- Modal -->
+									<div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
+										
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<h3>Edit your comment here.</h3>
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+												</div>
+												<div class="modal-body">
+													<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
+														<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
+														<button name ="update_comment" type="submit" class="btn btn-default">Save changes</button>
+														<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+
 								<?php endif; ?>
 							</tr>
 							<?php endforeach; ?>
 						</table>
 					</div>
 				</div>
-
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog">
-					
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<h3>Edit your comment here.</h3>
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-							</div>
-							<div class="modal-body">
-								<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
-									<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
-									<button name ="update_comment" type="submit" class="btn btn-default">Save changes</button>
-									<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
 			</div>
 		</div>
 
