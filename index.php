@@ -10,6 +10,8 @@
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+
+  require_once('comments.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +34,7 @@
 <!-- NAVIGATION BAR AND BURGER MENUE -->
 	<nav class="navbar navbar-fixed-top navbar-dark bg-dark shadow navbar-expand-md">
 		<div class="container">
-			<a class="navbar-brand" href="#">Recipe book</a>
+			<a class="navbar-brand" href="index.php">Recipe book</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -46,7 +48,7 @@
 						</li>
 					<?php endif ?>
 					<li class="nav-item active">
-						<a class="nav-link" href="profile.html">Profile<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
 					</li>
 					
 				</ul>
@@ -81,7 +83,7 @@
 	<!-- COOKING CONTENT -->
 	<div class="container">
 		<div class="row">
-			<div class="col my-5">
+			<div class="col my-5 pt-5">
 				<h3>Peanutbutter Rice</h3>
 			</div>
 		</div>
@@ -138,49 +140,98 @@
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col my-5 ">
-				<h3>Cherry Tomato Spaghetti</h3>
+		<!-- Comment Section -->
+		<div class="row pt-4">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<form id="comment" action="index.php" method="POST">
+							<div class="form-group">
+								<textarea name="comment" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+								<input name="username" type="text" value="<?php echo $_SESSION['username']?>" hidden></input>
+								<input name="recipe" type="text" value="1" hidden></input>
+								<button name="submit_comment" class="btn btn-primary pull-right" type="submit">Share</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<p id="ingredients">Ingredients</p>
-				<table id="2">
-					<tbody>
-						<tr>
-							<td class="pr-1" >25</td>
-							<td> cherry tomatoes</td>
-						</tr>
-						<tr>
-							<td class="pr-1">500</td>
-							<td> gr spaghetti</td>
-						</tr>
-						<tr>
-							<td class="pr-1">1</td>
-							<td> tbs butter</td>
-						</tr>
-						<tr>
-							<td class="pr-1"></td>
-							<td> garlic powder</td>
-						</tr>
-						<tr>
-							<td class="pr-1"></td>
-							<td> salt</td>
-						</tr>
-						<tr>
-							<td class="pr-1"></td>
-							<td> pepper</td>
-						</tr>
-						<tr>
-							<td class="pr-1"></td>
-							<td> chilli powder</td>
-						</tr>
-					</tbody>
-				</table>
-				<p>For <input type="number" id="number_field" value="2" onClick="calculate(2, number_field)"> servings</p>
-				</form>				
+
+		<!-- Show Comments in Collapsible -->
+		<div class="accordion mt-3" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+						Show Comments
+						</button>
+					</h2>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<table class="table">
+							<?php foreach($result_1 as $row): ?>
+							<tr>
+								<td><?php echo $row['username']; ?></td>
+								<td><?php echo $row['comment']; ?></td>
+								<?php if($row['username'] == $_SESSION['username']): ?>
+									<td> <button> <img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"> </button> </td>
+									<td> <button> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+								<?php endif; ?>
+							</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
 			</div>
+		</div>
+
+		<!-- COOKING CONTENT -->
+			<div class="row">
+				<div class="col my-5 pt-5">
+					<h3>Cherry Tomato Spaghetti</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-3">
+					<p id="ingredients">Ingredients</p>
+					<table id="2">
+						<tbody>
+							<tr>
+								<td class="pr-1" >25</td>
+								<td> cherry tomatoes</td>
+							</tr>
+							<tr>
+								<td class="pr-1">500</td>
+								<td> gr spaghetti</td>
+							</tr>
+							<tr>
+								<td class="pr-1">1</td>
+								<td> tbs butter</td>
+							</tr>
+							<tr>
+								<td class="pr-1"></td>
+								<td> garlic powder</td>
+							</tr>
+							<tr>
+								<td class="pr-1"></td>
+								<td> salt</td>
+							</tr>
+							<tr>
+								<td class="pr-1"></td>
+								<td> pepper</td>
+							</tr>
+							<tr>
+								<td class="pr-1"></td>
+								<td> chilli powder</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>For <input type="number" id="number_field" value="2" onClick="calculate(2, number_field)"> servings</p>
+					</form>				
+				</div>
 			<div class="col-md-6 col-lg-4">
 				<p id="ingredients">Instruction</p>
 				<p>Cook spaghetti. Heat butter in pan, add garlic powder. Add tomatoes and cover with lid. Wait for 10mins and Smash tomatoes. Add a little extra oil. Mix spaghetti and sauce. Enjoy!</p>
@@ -190,8 +241,20 @@
 			</div>
 		</div>
 		
+		<!-- Comment Section -->
+		<div class="row pt-4">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+						<button class="btn btn-primary pull-right" type="button">Share</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
-			<div class="col my-5 ">
+			<div class="col my-5 pt-5">
 				<h3>Basic Lasagna</h3>
 			</div>
 		</div>
@@ -272,8 +335,20 @@
 			</div>
 		</div>
 		
+		<!-- Comment Section -->
+		<div class="row pt-4">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+						<button class="btn btn-primary pull-right" type="button">Share</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
-			<div class="col my-5 ">
+			<div class="col my-5 pt-5">
 				<h3>African peanut stew</h3>
 			</div>
 		</div>
@@ -324,6 +399,19 @@
 				<img class="img-fluid max-width:100% height:auto" src="/Bilder/african.jpg">
 			</div>
 		</div>
+
+		<!-- Comment Section -->
+		<div class="row py-4">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+						<button class="btn btn-primary pull-right" type="button">Share</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 		
 	<!-- jQuery first, then Bootstrap JS. -->

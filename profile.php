@@ -18,7 +18,7 @@
 	<!-- NAVIGATION BAR AND BURGER MENUE -->
 	<nav class="navbar navbar-fixed-top navbar-dark bg-dark shadow navbar-expand-md">
 		<div class="container">
-			<a class="navbar-brand" href="#">Recipe book</a>
+			<a class="navbar-brand" href="index.php">Recipe book</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -32,7 +32,7 @@
 						</li>
 					<?php endif ?>
 					<li class="nav-item active">
-						<a class="nav-link" href="profile.html">Profile<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
 					</li>
 					
 				</ul>
@@ -49,7 +49,7 @@
 				<table>
 					<tr>
 						<td><strong>Name: </strong></td>
-						<td><?=$_SESSION['username']?></td>
+						<td><? $_SESSION['username']?></td>
 					</tr>
 					<tr>
 						<td><strong>Email: </strong></td>

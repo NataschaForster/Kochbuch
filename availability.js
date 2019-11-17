@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#username').blur(function() {
+    $('#username').keyup(function() {
         var username = $(this).val();
         $.ajax({
             url: "server.php",
