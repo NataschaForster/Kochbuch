@@ -274,12 +274,77 @@ if (isset($_GET['logout'])) {
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-info">
 					<div class="panel-body">
-						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-						<button class="btn btn-primary pull-right" type="button">Share</button>
+						<form id="comment" action="index.php" method="POST">
+							<div class="form-group">
+								<textarea name="comment" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+								<input name="username" type="text" value="<?php echo $_SESSION['username'] ?>" hidden></input>
+								<input name="recipe" type="text" value="2" hidden></input>
+								<button name="submit_comment" class="btn btn-primary pull-right" type="submit">Share</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Show Comments in Collapsible -->
+		<div class="accordion mt-3" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+							Show Comments
+						</button>
+					</h2>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<table class="table">
+							<?php foreach ($result_2 as $row) : ?>
+								<tr>
+									<td><?php echo $row['username']; ?></td>
+									<td><?php echo $row['comment']; ?></td>
+									<?php if ($row['username'] == $_SESSION['username']) : ?>
+
+										<!-- Trigger the modal with a button -->
+										<td><button type="button" class="btn" data-toggle="modal" data-target="#myModal-<?php echo $row['id']; ?>"><img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"></button></td>
+
+										<form id="delete" action="index.php" method="POST">
+
+											<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+
+											<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+										</form>
+
+										<!-- Modal -->
+										<div class="modal fade" id="myModal-<?php echo $row['id']; ?>" role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<h3>Edit your comment here.</h3>
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+													</div>
+													<div class="modal-body">
+														<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
+															<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+															<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
+															<button name="update_comment" type="submit" class="btn btn-default">Save changes</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									<?php endif; ?>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
+			</div>
 
 		<div class="row">
 			<div class="col my-5 pt-5">
@@ -368,12 +433,77 @@ if (isset($_GET['logout'])) {
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-info">
 					<div class="panel-body">
-						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-						<button class="btn btn-primary pull-right" type="button">Share</button>
+						<form id="comment" action="index.php" method="POST">
+							<div class="form-group">
+								<textarea name="comment" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+								<input name="username" type="text" value="<?php echo $_SESSION['username'] ?>" hidden></input>
+								<input name="recipe" type="text" value="3" hidden></input>
+								<button name="submit_comment" class="btn btn-primary pull-right" type="submit">Share</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Show Comments in Collapsible -->
+		<div class="accordion mt-3" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+							Show Comments
+						</button>
+					</h2>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<table class="table">
+							<?php foreach ($result_3 as $row) : ?>
+								<tr>
+									<td><?php echo $row['username']; ?></td>
+									<td><?php echo $row['comment']; ?></td>
+									<?php if ($row['username'] == $_SESSION['username']) : ?>
+
+										<!-- Trigger the modal with a button -->
+										<td><button type="button" class="btn" data-toggle="modal" data-target="#myModal-<?php echo $row['id']; ?>"><img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"></button></td>
+
+										<form id="delete" action="index.php" method="POST">
+
+											<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+
+											<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+										</form>
+
+										<!-- Modal -->
+										<div class="modal fade" id="myModal-<?php echo $row['id']; ?>" role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<h3>Edit your comment here.</h3>
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+													</div>
+													<div class="modal-body">
+														<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
+															<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+															<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
+															<button name="update_comment" type="submit" class="btn btn-default">Save changes</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									<?php endif; ?>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
+			</div>
 
 		<div class="row">
 			<div class="col my-5 pt-5">
@@ -429,16 +559,82 @@ if (isset($_GET['logout'])) {
 		</div>
 
 		<!-- Comment Section -->
-		<div class="row py-4">
+		<div class="row pt-4">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-info">
 					<div class="panel-body">
-						<textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-						<button class="btn btn-primary pull-right" type="button">Share</button>
+						<form id="comment" action="index.php" method="POST">
+							<div class="form-group">
+								<textarea name="comment" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+								<input name="username" type="text" value="<?php echo $_SESSION['username'] ?>" hidden></input>
+								<input name="recipe" type="text" value="4" hidden></input>
+								<button name="submit_comment" class="btn btn-primary pull-right" type="submit">Share</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Show Comments in Collapsible -->
+		<div class="accordion mt-3" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+							Show Comments
+						</button>
+					</h2>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<table class="table">
+							<?php foreach ($result_4 as $row) : ?>
+								<tr>
+									<td><?php echo $row['username']; ?></td>
+									<td><?php echo $row['comment']; ?></td>
+									<?php if ($row['username'] == $_SESSION['username']) : ?>
+
+										<!-- Trigger the modal with a button -->
+										<td><button type="button" class="btn" data-toggle="modal" data-target="#myModal-<?php echo $row['id']; ?>"><img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png"></button></td>
+
+										<form id="delete" action="index.php" method="POST">
+
+											<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+
+											<td> <button type="submit" name="delete_comment"> <img src="https://img.icons8.com/metro/26/000000/delete.png"> </button> </td>
+										</form>
+
+										<!-- Modal -->
+										<div class="modal fade" id="myModal-<?php echo $row['id']; ?>" role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<h3>Edit your comment here.</h3>
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+													</div>
+													<div class="modal-body">
+														<form id="modal_form" class="m-0 border-0" action="index.php" method="POST">
+															<input name="id" type="text" value="<?php echo $row['id']; ?>" hidden></input>
+															<input type="text" name="updated_comment" value="<?php echo $row['comment']; ?>"></input>
+															<button name="update_comment" type="submit" class="btn btn-default">Save changes</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									<?php endif; ?>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
+			</div>
+		
 
 	</div>
 

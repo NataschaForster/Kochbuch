@@ -48,7 +48,7 @@
     $sql_2 = "SELECT * FROM comments WHERE recipe='2'";
     $result_2 = mysqli_query($db, $sql_2);
 
-    $sql_3 = "SELECT * FROM comments WHRE recipe='3'";
+    $sql_3 = "SELECT * FROM comments WHERE recipe='3'";
     $result_3 = mysqli_query($db, $sql_3);
 
     $sql_4 = "SELECT * FROM comments WHERE recipe='4'";
