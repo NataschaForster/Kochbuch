@@ -513,7 +513,7 @@ if (isset($_GET['logout'])) {
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<p id="ingredients">Ingredients</p>
-				<table id="2">
+				<table id="4">
 					<tbody>
 						<tr>
 							<td class="pr-1">1</td>
@@ -634,7 +634,7 @@ if (isset($_GET['logout'])) {
 					</div>
 				</div>
 			</div>
-		
+
 
 	</div>
 
