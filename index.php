@@ -257,7 +257,7 @@ if (isset($_GET['logout'])) {
 						</tr>
 					</tbody>
 				</table>
-				<p>For <input type="number" id="number_field" value="2" onClick="calculate(2, number_field)"> servings</p>
+				<p>For <input type="number" id="number_field2" value="2" onClick="calculate(2, number_field2)"> servings</p>
 				</form>
 			</div>
 			<div class="col-md-6 col-lg-4">
@@ -384,11 +384,8 @@ if (isset($_GET['logout'])) {
 							<td class="pr-1"></td>
 							<td> chilli powder</td>
 						</tr>
-					</tbody>
-				</table>
-				<p>Ingredients for cheese:</p>
-				<table id="4">
-					<tbody>
+
+
 						<tr>
 							<td class="pr-1">1</td>
 							<td> tbsp nutritional yeast</td>
@@ -416,7 +413,7 @@ if (isset($_GET['logout'])) {
 					</tbody>
 				</table>
 				<p class="py-3">
-					For <input type="number" id="number_field" value="4" onClick="calculate(3, number_field)"> servings</input>
+					For <input type="number" id="number_field3" value="4" onClick="calculate(3, number_field3)"> servings</input>
 				</p>
 			</div>
 			<div class="col-md-6 col-lg-4">
@@ -546,7 +543,7 @@ if (isset($_GET['logout'])) {
 					</tbody>
 				</table>
 				<p class="py-3">
-					For <input type="number" id="number_field" value="2" onClick="calculate(4, number_field)"> servings</input>
+					For <input type="number" id="number_field4" value="2" onClick="calculate(4, number_field4)"> servings</input>
 				</p>
 			</div>
 			<div class="col-md-6 col-lg-4">
